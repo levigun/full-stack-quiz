@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Stack Quiz</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="pull-left">View Highscore</div>
+            <time>Time: 0</time>
+        </header>
+        <main>
+
+            <h1> Full Stack Coding Challenge</h1>
+                <p> Try to answer the following code-related questions within the time frame. Incorrect answers will penalize your scoretime by 10 seconds! Best of luck!</p>
+                    <button>Start Quiz!</button>
+
+            <form class="question" id="q1" data-question="1">
+                <h2>1. Commonly used data types DO NOT include: </h2>
+                <ul>
+                    <li><input type="radio" name="q1" value="a" />1. Strings</li>
+                    <li><input type="radio" name="q1" value="b" />2. Booleans</li>
+                    <li><input type="radio" name="q1" value="c" />3. Alerts</li>
+                    <li><input type="radio" name="q1" value="d" />4. Numbers</li>
+                </ul>
+            </form>
+
+            <form class="question" id="q2" data-question="2">
+                <h2>2. The condition in an if/else statement is enclose within ______. </h2>
+                <ul>
+                    <li><input type="radio" name="q2" value="a" />1. Quotes</li>
+                    <li><input type="radio" name="q2" value="b" />2. Curly Brackets</li>
+                    <li><input type="radio" name="q3" value="c" />3. Parentheses</li>
+                    <li><input type="radio" name="q4" value="d" />4. Square Brackets</li>
+                </ul>
+            </form>
+
+            <form class="question" id="q3" data-question="3">
+                <h2>3. Arrays in JavaScript can be used to store ______. </h2>
+                <ul>
+                    <li><input type="radio" name="q3" value="a" />1. Numbers and Strings</li>
+                    <li><input type="radio" name="q3" value="b" />2. Other Arrays</li>
+                    <li><input type="radio" name="q3" value="c" />3. Booleans</li>
+                    <li><input type="radio" name="q3" value="d" />4. All of the above</li>
+                </ul>
+            </form>
+
+            <form class="question" id="q4" data-question="4">
+                <h2>4. String values must be enclosed within _____ when being assigned to variables. </h2>
+                <ul>
+                    <li><input type="radio" name="q4" value="a" />1. Commas</li>
+                    <li><input type="radio" name="q4" value="b" />2. Curly Brackets</li>
+                    <li><input type="radio" name="q4" value="c" />3. Quotes</li>
+                    <li><input type="radio" name="q4" value="d" />4. Parantheses</li>
+                </ul>
+            </form>
+
+            <form class="question" id="q5" data-question="5">
+                <h2>5. a very useful tool used during development and debugging for printing content to the debugger is: </h2>
+                <ul>
+                    <li><input type="radio" name="q5" value="a" />1. JavaScript</li>
+                    <li><input type="radio" name="q5" value="b" />2. Terminal/Bash</li>
+                    <li><input type="radio" name="q5" value="c" />3. for loops</li>
+                    <li><input type="radio" name="q5" value="d" />4. console.log </li>
+                </ul>
+            </form>
+
+            <h1> All Done!</h1>
+                <p value="result"> Your final score is: </p>
+                <h3>Enter initials:</h3>
+                    <div><input type="text"/></div>
+                <button id="submit">Submit!</button>
+
+            <h1> Highscores</h1>
+                <button id="goBack">Go Back</button>
+                <button id="clearHighscore">Clear Highscores</button>
+        </main>
+
+    </div>
+</body>
+</html>
