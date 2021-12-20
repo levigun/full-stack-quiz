@@ -1,0 +1,38 @@
+header {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:15px;
+    line-height: 1.6em;
+    padding: 20px;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    background-color: rgb(250, 141, 250);
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    width: 68%;
+    margin: 20px auto;
+    overflow: auto;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
