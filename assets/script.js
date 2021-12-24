@@ -1,6 +1,14 @@
 // Pseudo coding
 // 1. user will open link and see the quiz page
 // 2. there will be a start button present and the user will click to start the quiz.
+
+var startButton = document.querySelector("#start-quiz");
+
+startButton.addEventListener("click", function(){
+
+
+})
+
 // 3. Questions will be presented but the questions are displayed one by one.
 // 4. Upon the starting button, the timer of 90s will also start with the questions.
 // 5. the user will answer a question.
@@ -12,3 +20,7 @@
 // 11. then in the high score page they can choose to view the high scores or go back and start the game again.
 // 11. The user can also check their previous scores and intials when the "view highscore" 
 //  link is clicked at the top of the first page. (this means it will be saved in local storage)
+
+
+
+
