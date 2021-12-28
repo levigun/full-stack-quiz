@@ -10,7 +10,7 @@
 
 <header>
     <div class="float-left"><a href="#view-highscore">View Highscore</a></div>
-    <time class="float-right">Time: 0</time>
+    <time class="float-right timer">Time: 0</time>
 </header>
 
 <body>
@@ -21,56 +21,56 @@
         <div class="intro">
             <h1> Full Stack Coding Challenge</h1>
                 <p> Try to answer the following code-related questions within the time frame. Incorrect answers will penalize your scoretime by 10 seconds! Best of luck!</p>
-                   <div class="btn-container"><button>Start Quiz!</button></div>
+                   <div class="btn-container"><button id="btn-start">Start Quiz!</button></div>
         </div>
 
             <form class="question" id="q1" data-question="1">
                 <h2>1. Commonly used data types DO NOT include: </h2>
                     <ul>
-                        <li><button name="q1" value="a">1. Strings</button></li>
-                        <li><button name="q1" value="b">2. Booleans</button></li>
-                        <li><button name="q1" value="c">3. Alerts</button></li>
-                        <li><button name="q1" value="d">4. Numbers</button></li>
+                        <li><button class="button-choice" name="q1" value="a">1. Strings</button></li>
+                        <li><button class="button-choice" name="q1" value="b">2. Booleans</button></li>
+                        <li><button class="button-choice" name="q1" value="c">3. Alerts</button></li>
+                        <li><button class="button-choice" name="q1" value="d">4. Numbers</button></li>
                     </ul>
             </form>
 
             <form class="question" id="q2" data-question="2">
                 <h2>2. The condition in an if/else statement is enclose within ______. </h2>
                     <ul>
-                        <li><button name="q2" value="a">1. Quotes</button></li>
-                        <li><button name="q2" value="b">2. Curly Brackets</button></li>
-                        <li><button name="q2" value="c">3. Parentheses</button></li>
-                        <li><button name="q2" value="d">4. Square Brackets</button></li>
+                        <li><button class="button-choice" name="q2" value="a">1. Quotes</button></li>
+                        <li><button class="button-choice" name="q2" value="b">2. Curly Brackets</button></li>
+                        <li><button class="button-choice" name="q2" value="c">3. Parentheses</button></li>
+                        <li><button class="button-choice" name="q2" value="d">4. Square Brackets</button></li>
                     </ul>
             </form>
 
             <form class="question" id="q3" data-question="3">
                 <h2>3. Arrays in JavaScript can be used to store ______. </h2>
                     <ul>
-                        <li><button name="q3" value="a">1. Numbers and Strings</button></li>
-                        <li><button name="q3" value="b">2. Other Arrays</button></li>
-                        <li><button name="q3" value="c">3. Booleans</button></li>
-                        <li><button name="q3" value="d">4. All of the above</button></li>
+                        <li><button class="button-choice" name="q3" value="a">1. Numbers and Strings</button></li>
+                        <li><button class="button-choice" name="q3" value="b">2. Other Arrays</button></li>
+                        <li><button class="button-choice" name="q3" value="c">3. Booleans</button></li>
+                        <li><button class="button-choice" name="q3" value="d">4. All of the above</button></li>
                     </ul>
             </form>
 
             <form class="question" id="q4" data-question="4">
                 <h2>4. String values must be enclosed within _____ when being assigned to variables. </h2>
                     <ul>
-                        <li><button name="q4" value="a">1. Commas</button></li>
-                        <li><button name="q4" value="b">2. Curly Brackets</button></li>
-                        <li><button name="q4" value="c">3. Quotes</button></li>
-                        <li><button name="q4" value="d">4. Parentheses</button></li>
+                        <li><button class="button-choice" name="q4" value="a">1. Commas</button></li>
+                        <li><button class="button-choice" name="q4" value="b">2. Curly Brackets</button></li>
+                        <li><button class="button-choice" name="q4" value="c">3. Quotes</button></li>
+                        <li><button class="button-choice" name="q4" value="d">4. Parentheses</button></li>
                     </ul>
             </form>
 
             <form class="question" id="q5" data-question="5">
                 <h2>5. A very useful tool used during development and debugging for printing content to the debugger is: </h2>
                     <ul>
-                        <li><button name="q5" value="a">1. JavaScript</button></li>
-                        <li><button name="q5" value="b">2. Terminal/Bash</button></li>
-                        <li><button name="q5" value="c">3. for loops</button></li>
-                        <li><button name="q5" value="d">4. console.log </button></li>
+                        <li><button class="button-choice" name="q5" value="a">1. JavaScript</button></li>
+                        <li><button class="button-choice" name="q5" value="b">2. Terminal/Bash</button></li>
+                        <li><button class="button-choice" name="q5" value="c">3. for loops</button></li>
+                        <li><button class="button-choice" name="q5" value="d">4. console.log </button></li>
                     </ul>
             </form>
 
@@ -84,7 +84,12 @@
 
             <div id="view-highscore">
                 <h1> Highscores</h1>
-                    <div></div>
+                    <div id="div-highscore">
+                        
+                        <ul>
+                            <li class="score-item"></li>
+                        </ul>
+                    </div>
                     <button id="goBack">Go Back</button>
                     <button id="clearHighscore">Clear Highscores</button>
              </div>
