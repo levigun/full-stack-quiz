@@ -1,18 +1,20 @@
 var startButtonEl = $('#btn-start');
-var q1ButtoneEl = $("button[name='q1']")
+var submitButtonEl = $('#submit');
+var goBackButtonEl = $('#goBack');
+var clearHighscoreE = $('#clearHighscore');
 var score = 0;
 var total = 5;
 var point = 1;
 var highest = total * point;
 
-// // // Initializer
+// Initializer
 function init() {
     // set correct answers
-    localStorage.setItem('a1', 'c');
-    localStorage.setItem('a2', 'c');
-    localStorage.setItem('a3', 'd');
-    localStorage.setItem('a4', 'c');
-    localStorage.setItem('a5', 'd');
+    localStorage.setItem('q1', 'c');
+    localStorage.setItem('q2', 'c');
+    localStorage.setItem('q3', 'd');
+    localStorage.setItem('q4', 'c');
+    localStorage.setItem('q5', 'd');
 
 }
 
@@ -22,6 +24,63 @@ $(document).ready(function () {
     $('#all-done').hide();
     $('#view-highscore').hide();
 
+
+    // when start button is clicked, 1st question is showing
+    //Questions will then  be presented but the questions are displayed one by one.
+
+    $('#btn-start').click(function () {
+        $('#q1').show();
+        $('.intro').hide();
+        // process('q1');
+        return false;
+    });
+
+
+    $('.question .button-choice').click(function(){
+        // get data attribute
+        current = $(this).parents('form:first').data('question');
+        next = $(this).parents('form:first').data('question')+1;
+        // hide all questions
+        $('.question').hide();
+        // show next question
+        $('#q'+next+'').show();
+        return false;
+
+    });
+
+    $("button[name='q5']").click(function () {
+        $('#all-done').show();
+        $('#q5').hide();
+        return false;
+    });
+
+    $('#submit').click(function () {
+        // when the submit button is clicked, the highscore page will show
+
+        // get the input value of the initial
+    //     var initialInput = $('#initial-input').val();
+    //     $('#initial-input').val(initialInput);
+
+    //    initialInput.change(function(){
+    //     $('#initial-list').val($(this).val(initialInput)).show();
+
+    //     });
+
+        $('#view-highscore').show();
+
+
+        $('#all-done').hide();
+        return false;
+    });
+
+    $('#goBack').click(function () {
+        location.reload();
+    });
+
+    // $('#clearHighscore').click(function() {
+    // });
+
+    // timers starts when the start button is clicked
     var secondsLeft = 90;
     var timeEl = $('.timer');
     
@@ -44,16 +103,6 @@ $(document).ready(function () {
 
     });
 
-    // when start button is clicked, 1st question is showing
-    //Questions will then  be presented but the questions are displayed one by one.
-
-    $('#btn-start').click(function () {
-        $('#q1').show();
-        $('.intro').hide();
-        // process('q1');
-        return false;
-    });
-
     $(document).on('click', ".button-choice", function(event){
 
         // get the btn value
@@ -63,8 +112,26 @@ $(document).ready(function () {
         var questionId = event.target.name;
         var answer = localStorage.getItem(questionId);
 
+         // compare with local storage
+         if (userSelected === answer) {
+            // if same, increase score and go to next question
+            score++;     
+        } else {
+            // alert wrong and minus 10 sec
+            alert('Wrong! You have lost 10s of your time.')
+            event.prevetDefault();
+            secondsLeft -=10;
+        }
 
-        // in highscore.html or when viewing highscore
+    });
+
+
+
+// Add event listener
+window.addEventListener('load', init, false)
+
+
+   // in highscore.html or when viewing highscore
         // on page load 
         // get all the hs from local storage (array)
 
@@ -79,98 +146,9 @@ $(document).ready(function () {
         // put this li to the dom
 
 
-        // compare with local storage
-        if (userSelected === answer) {
-            // if same
-            // increase score
-            score++;     
-        } else {
-            // TODO: show wrong or correct
-            // minus 10 sec
-
-            // i live to eat
-
-            // now is better than later
-            // later is better than never
-
-            secondsLeft -=10;
-        }
 
 
-        // if no,
 
 
-    });
-
-    // $("button[name='q1']").click(function () {
-    //     $('#q2').show();
-    //     $('#q1').hide();
-    //     return false;
-    // });
-
-    // $("button[name='q2']").click(function () {
-    //     $('#q3').show();
-    //     $('#q2').hide();
-    //     return false;
-    // });
-
-    // $("button[name='q3']").click(function () {
-    //     $('#q4').show();
-    //     $('#q3').hide();
-    //     return false;
-    // });
-
-    // $("button[name='q4']").click(function () {
-    //     $('#q5').show();
-    //     $('#q4').hide();
-    //     return false;
-    // });
-
-    // $("button[name='q5']").click(function () {
-    //     $('#all-done').show();
-    //     $('#q5').hide();
-    //     return false;
-    // });
-
-    // $('#submit').click(function () {
-    //     $('#view-highscore').show();
-    //     $('#all-done').hide();
-    //     return false;
-    // });
-
-    // $('#goBack').click(function () {
-    //     $('.intro').show();
-    //     $('#view-highscore').hide();
-    //     return false;
-    // });
-
-    // $('#clearHighscore').click(function() {
-    // });
 
 });
-
-// function process(q) {
-//     if (q == "q1") {
-//         var submitted = $('button[name=q1]:clicked').val();
-//         if (submitted === localStorage.a1) {
-//             score++;
-//         }
-//     }
-// }
-
-
-// // // Add event listener
-window.addEventListener('load', init, false);
-
-
-// when the start button is clicked, the timer starts
-
-
-//  ask question about the timer change to Time: 90s then the 90s --;
-
-
-
-
-
-
-
