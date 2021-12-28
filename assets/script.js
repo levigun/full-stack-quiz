@@ -1,7 +1,11 @@
 var startButtonEl = $('#btn-start');
 var submitButtonEl = $('#submit');
 var goBackButtonEl = $('#goBack');
-var clearHighscoreE = $('#clearHighscore');
+var clearHighscoreEl = $('#clearHighscore');
+var correctButtonEl = $('.button-choice-correct');
+var buttonChoiceEl = $('.button-choice');
+var secondsLeft = 90;
+var timeEl = $('.timer');
 var score = 0;
 var total = 5;
 var point = 1;
@@ -20,19 +24,38 @@ $(document).ready(function () {
     $('#btn-start').click(function () {
         $('#q1').show();
         $('.intro').hide();
-        // process('q1');
         return false;
     });
 
 
-    $('.question .button-choice').click(function(){
+    // timers starts when the start button is clicked
+    startButtonEl.on('click', function () {
+
+
+        // Sets interval in variable
+        var timerInterval = setInterval(function () {
+
+            secondsLeft--;
+            timeEl.text("Time: " + secondsLeft + " s");
+
+            if (secondsLeft === 0) {
+                // Stops execution of action at set interval
+                clearInterval(timerInterval);
+            }
+
+        }, 1000);
+
+    });
+
+
+    $('.question .button-choice').click(function () {
         // get data attribute
         current = $(this).parents('form:first').data('question');
-        next = $(this).parents('form:first').data('question')+1;
+        next = $(this).parents('form:first').data('question') + 1;
         // hide all questions
         $('.question').hide();
         // show next question
-        $('#q'+next+'').show();
+        $('#q' + next + '').show();
         return false;
 
     });
@@ -47,17 +70,15 @@ $(document).ready(function () {
         // when the submit button is clicked, the highscore page will show
 
         // get the input value of the initial
-    //     var initialInput = $('#initial-input').val();
-    //     $('#initial-input').val(initialInput);
+        //     var initialInput = $('#initial-input').val();
+        //     $('#initial-input').val(initialInput);
 
-    //    initialInput.change(function(){
-    //     $('#initial-list').val($(this).val(initialInput)).show();
+        //    initialInput.change(function(){
+        //     $('#initial-list').val($(this).val(initialInput)).show();
 
-    //     });
+        //     });
 
         $('#view-highscore').show();
-
-
         $('#all-done').hide();
         return false;
     });
@@ -66,28 +87,8 @@ $(document).ready(function () {
         location.reload();
     });
 
-    // timers starts when the start button is clicked
-    var secondsLeft = 90;
-    var timeEl = $('.timer');
-    
 
-    startButtonEl.on('click', function () {
-        
 
-        // Sets interval in variable
-        var timerInterval = setInterval(function () {
-            
-            secondsLeft--;
-            timeEl.text("Time: " + secondsLeft + " s");
-
-            if (secondsLeft === 0) {
-                // Stops execution of action at set interval
-                clearInterval(timerInterval);
-            }
-
-        }, 1000);
-
-    });
 
     // $(document).on('click', ".button-choice", function(event){
     //         console.log('hu');
@@ -112,26 +113,36 @@ $(document).ready(function () {
 
     // });
 
-function correct() {
-    alert("correct test");
-    console.log("correct test");
+    // function for choosing correct answer
+    correctButtonEl.on('click', function (event){
+        if (true) {
+            score++; 
+            event.preventDefault();
+        } 
+    });
 
-}
+    // function for choosing other than the correct answer
+    buttonChoiceEl.on('click', function (){
+        if (true) {
+            alert('Wrong! You have lost 10s of your time.')
+            secondsLeft -=10;
+        }
 
+    })
 
-   // in highscore.html or when viewing highscore
-        // on page load 
-        // get all the hs from local storage (array)
+    // in highscore.html or when viewing highscore
+    // on page load 
+    // get all the hs from local storage (array)
 
-        // loop thru hs  : initial - score
+    // loop thru hs  : initial - score
 
-        // for each hs,
-        
-        // create li,
-        // put the initial - score as the text content
-        // then add css class
+    // for each hs,
 
-        // put this li to the dom
+    // create li,
+    // put the initial - score as the text content
+    // then add css class
+
+    // put this li to the dom
 
 
 
