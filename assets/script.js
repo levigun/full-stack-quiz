@@ -7,17 +7,6 @@ var total = 5;
 var point = 1;
 var highest = total * point;
 
-// Initializer
-function init() {
-    // set correct answers
-    localStorage.setItem('q1', 'c');
-    localStorage.setItem('q2', 'c');
-    localStorage.setItem('q3', 'd');
-    localStorage.setItem('q4', 'c');
-    localStorage.setItem('q5', 'd');
-
-}
-
 // hides all the questions,high score page, and the "All Done "section
 $(document).ready(function () {
     $('.question').hide();
@@ -77,9 +66,6 @@ $(document).ready(function () {
         location.reload();
     });
 
-    // $('#clearHighscore').click(function() {
-    // });
-
     // timers starts when the start button is clicked
     var secondsLeft = 90;
     var timeEl = $('.timer');
@@ -103,32 +89,34 @@ $(document).ready(function () {
 
     });
 
-    $(document).on('click', ".button-choice", function(event){
+    // $(document).on('click', ".button-choice", function(event){
+    //         console.log('hu');
 
-        // get the btn value
-        var userSelected = event.target.value;
+    //     // get the btn value
+    //     var userSelected = event.target.value;
 
-        // get from local storage
-        var questionId = event.target.name;
-        var answer = localStorage.getItem(questionId);
+    //     // get from local storage
+    //     var questionId = event.target.name;
+    //     var answer = localStorage.getItem(questionId);
 
-         // compare with local storage
-         if (userSelected === answer) {
-            // if same, increase score and go to next question
-            score++;     
-        } else {
-            // alert wrong and minus 10 sec
-            alert('Wrong! You have lost 10s of your time.')
-            event.prevetDefault();
-            secondsLeft -=10;
-        }
+    //      // compare with local storage
+    //      if (userSelected === answer) {
+    //         // if same, increase score and go to next question
+    //         score++;     
+    //     } else {
+    //         // alert wrong and minus 10 sec
+    //         alert('Wrong! You have lost 10s of your time.')
+    //         event.prevetDefault();
+    //         secondsLeft -=10;
+    //     }
 
-    });
+    // });
 
+function correct() {
+    alert("correct test");
+    console.log("correct test");
 
-
-// Add event listener
-window.addEventListener('load', init, false)
+}
 
 
    // in highscore.html or when viewing highscore

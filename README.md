@@ -25,6 +25,7 @@ Follow these instructions on how the quiz is going to be played:
 8. You can either play the quiz again, check all the scores by clicking the "View Highscore" link at the top-left of the page, or even exit the page.
 
 ## Full Stack Quiz Look
+![week4](assets/quizlook.png)
 
 ## Credits
 https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
