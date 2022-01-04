@@ -2,9 +2,10 @@ var startButtonEl = $('#btn-start');
 var submitButtonEl = $('#submit');
 var goBackButtonEl = $('#goBack');
 var clearHighscoreEl = $('#clearHighscore');
-var correctButtonEl = $('.button-choice-correct');
+var correctButtonEl = $('.correct');
 var buttonChoiceEl = $('.button-choice');
 var secondsLeft = 90;
+var timerInterval;
 var timeEl = $('.timer');
 var score = 0;
 var total = 5;
@@ -28,7 +29,19 @@ $(document).ready(function () {
     });
 
     function questionsDisplay() {
-        $('.question .button-choice').click(function () {
+        $('.question .button-choice').click(function (event) {
+            event.preventDefault();
+            // check if the correct button is clicked 
+            if ($(this).hasClass("correct")) {
+                // if yes score ++ 
+                score++;
+            } else {
+                // if no, -10s and alert 
+                alert('Wrong! You have lost 10s of your time.')
+                secondsLeft -= 10;
+            }
+
+            // next question displays
             // get data attribute
             current = $(this).parents('form:first').data('question');
             next = $(this).parents('form:first').data('question') + 1;
@@ -40,11 +53,15 @@ $(document).ready(function () {
 
         })
     };
+
     questionsDisplay();
+    
 
     $("button[name='q5']").click(function () {
         $('#all-done').show();
         $('#q5').hide();
+        clearInterval(timerInterval);
+        timeEl.text("Time: 0");
         return false;
     });
 
@@ -64,7 +81,7 @@ $(document).ready(function () {
 
 
         // Sets interval in variable
-        var timerInterval = setInterval(function () {
+        timerInterval = setInterval(function () {
 
             secondsLeft--;
             timeEl.text("Time: " + secondsLeft + " s");
@@ -78,45 +95,19 @@ $(document).ready(function () {
 
     });
 
-    // function for choosing correct answer
-    function correctAnswer(event) {
-        correctButtonEl.on('click', function () {
-            if (true) {
-                score++;
-                questionsDisplay();
-            }
-        })
-    };
-    correctAnswer();
-
-    // function for choosing other than the correct answer
-    function wrongAnswer() {
-        buttonChoiceEl.on('click', function () {
-            if (true) {
-                alert('Wrong! You have lost 10s of your time.')
-                secondsLeft -= 10;
-                return false;
-            }
-
-        })
-    };
-    wrongAnswer();
-
 
 
   // when the submit button is clicked, the highscore page will show
 
         // get the input value of the initial
-        //     var initialInput = $('#initial-input').val();
-        //     $('#initial-input').val(initialInput);
+            var initialInput = $('#initial-input');
 
         //    initialInput.change(function(){
         //     $('#initial-list').val($(this).val(initialInput)).show();
 
         //     });
 
-    // in highscore.html or when viewing highscore
-    // on page load 
+    
     // get all the hs from local storage (array)
 
     // loop thru hs  : initial - score
